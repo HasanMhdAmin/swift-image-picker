@@ -5,3 +5,10 @@ Allow the user to select one or multiple images from a pre-defined image list pr
 - Save the images locally
 - Allow the user to select one or more from this list
 - Return the selected images to the previews view controller
+
+## Change Mode
+To change between the single and the multiple mode modify this variable
+
+```swift
+photoPickerVC.allowMultiSelection = true 
+```
