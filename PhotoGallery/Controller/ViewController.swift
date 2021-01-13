@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.progressBar.setProgress(0.0, animated: false)
         downloadImages()
     }
     
@@ -39,9 +40,10 @@ class ViewController: UIViewController {
                 
                 // add the downloaded image name to the list
                 self.images.append(ImageItem(name: fileName))
-                
-                let progress = Utils.scale(oldMin: 1, oldMax: 50, newMin: 0.0, newMax: 1.0, value: Float(num))
-                self.progressBar.setProgress(progress, animated: true)                
+                DispatchQueue.main.async {
+                    let progress = Utils.scale(oldMin: 1, oldMax: 50, newMin: 0.0, newMax: 1.0, value: Float(num))
+                    self.progressBar.setProgress(progress, animated: true)
+                }
             }
         }
     }
@@ -54,9 +56,10 @@ class ViewController: UIViewController {
         
         if segue.identifier == "GoToSelectImage"{
             let photoPickerVC = segue.destination as! PhotoPickerViewController
-            photoPickerVC.images = images
+            let imageToSend = images.map { $0.copy() as! ImageItem }  // different array with same objects
+            photoPickerVC.images = imageToSend
             photoPickerVC.result = self
-            photoPickerVC.allowMultiSelection = false
+            photoPickerVC.allowMultiSelection = true
         }
     }
     
