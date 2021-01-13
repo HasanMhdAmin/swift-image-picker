@@ -34,6 +34,17 @@
                                 <rect key="frame" x="83" y="189" width="249" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Multi Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nw-Qb-xj4">
+                                <rect key="frame" x="83" y="560" width="113" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="orF-QV-M8D">
+                                <rect key="frame" x="272" y="555" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,6 +52,7 @@
                     <navigationItem key="navigationItem" id="33d-0f-ZM8"/>
                     <connections>
                         <outlet property="imageView" destination="FKL-j2-Yf4" id="tm4-10-Ecb"/>
+                        <outlet property="multiSelectionSwitch" destination="orF-QV-M8D" id="OGB-61-paE"/>
                         <outlet property="progressBar" destination="6i4-AU-R5J" id="xAi-xB-bkA"/>
                     </connections>
                 </viewController>

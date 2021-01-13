@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var multiSelectionSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
             let imageToSend = images.map { $0.copy() as! ImageItem }  // different array with same objects
             photoPickerVC.images = imageToSend
             photoPickerVC.result = self
-            photoPickerVC.allowMultiSelection = true
+            photoPickerVC.allowMultiSelection = multiSelectionSwitch.isOn
         }
     }
     
