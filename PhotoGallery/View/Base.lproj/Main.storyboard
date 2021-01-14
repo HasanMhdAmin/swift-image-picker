@@ -22,7 +22,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Image"/>
                                 <connections>
-                                    <action selector="selectImagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82E-El-mjz"/>
                                     <segue destination="pVc-QC-waU" kind="show" identifier="GoToSelectImage" id="UA0-ca-lMs"/>
                                 </connections>
                             </button>
