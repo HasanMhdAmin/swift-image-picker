@@ -10,14 +10,14 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class PhotoPickerViewController: UICollectionViewController {
-
+    
     // variables will be passed from the previous CV
     var images : [ImageItem] = []
     var allowMultiSelection = false
     var result : ImageSelectCallback?
-
+    
     var lastSelectedItemIndex : Int = -1
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.id)
@@ -76,27 +76,18 @@ class PhotoPickerViewController: UICollectionViewController {
 
 extension PhotoPickerViewController: UICollectionViewDelegateFlowLayout {
     
-    // I need to improve this function to find a good way to define how many columns I want in the collection view
+    // TODO: I need to improve this function to find a good way to define how many columns I want in the collection view
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
         
-        ////////////
-        //        let inset: CGFloat = 10
-        //        let minimumInteritemSpacing: CGFloat = 1
-        //        let cellsPerRow = 3
-        //
-        //        let marginsAndInsets = inset * 2 + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-        //        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-        //        return CGSize(width: itemWidth, height: itemWidth)
-        ////////////
-        
-        
-        
-        //        let screenRect = UIScreen.main.bounds
-        //        let screenWidth = screenRect.size.width
-        //        let cellWidth = screenWidth / 2.0
-        //        return CGSize(width: cellWidth, height: cellWidth)
-        //
-        
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        var cellWidth: CGFloat = 120.0
+        if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) {
+            cellWidth = screenWidth / 7.0
+        } else {
+            cellWidth = screenWidth / 3.3
+        }
+        return CGSize(width: cellWidth, height: cellWidth)
     }
+    
 }
